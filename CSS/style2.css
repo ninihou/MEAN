@@ -1,0 +1,68 @@
+body {
+  font-family: sans-serif;
+}
+
+/* Step 1: Card — border, rounded corners, padding, centered on page */
+.tweet {
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+
+  /* Step 2: flex-wrap so thumbnail + header sit side by side,
+     then message and actions each wrap to a new full-width row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: flex-start;
+}
+
+/* Step 3: Thumbnail — fixed size, circular */
+.tweet > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Step 4: Header row (name + metadata) — sits next to thumbnail,
+   takes the remaining width on that line */
+.header {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Step 5: Name bold, metadata gray */
+.name {
+  font-weight: bold;
+}
+
+.meta {
+  color: gray;
+}
+
+/* Step 6: Message — force onto a new full-width row,
+   indent it to align with the name (48px img + 12px gap = 60px) */
+.message {
+  width: 100%;
+  padding-left: 60px;
+}
+
+/* Step 7: Actions row — same indent as message,
+   space the 4 icon+count groups evenly */
+.actions {
+  width: 100%;
+  padding-left: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Step 8: Each action group (icon + count) — inline, vertically centered */
+.actions > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
